@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Agent;
 
 class AgentController extends Controller
 {
     public function index()
     {
         $agents = Agent::all(); // Or paginate: Agent::paginate(10);
-        return view('agents.index', compact('agents')); // Example view
+        return view('agent.dashboard', compact('agents')); // Example view
     }
 
     /**

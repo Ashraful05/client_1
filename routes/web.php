@@ -7,6 +7,8 @@ use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\WorkingHourController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +37,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::controller(AgentController::class)->prefix('agent')->group(function(){
 
-});
 Route::controller(CandidateController::class)->prefix('candidate')->group(function(){
     Route::get('create','create')->name('candidate.create');
 });
@@ -49,4 +49,19 @@ Route::controller(WorkingHourController::class)->prefix('workHour')->group(funct
 });
 Route::controller(AppointmentController::class)->prefix('appointment')->group(function(){
     Route::get('list','index')->name('appointments.index');
+});
+Route::controller(AdminController::class)->prefix('admin')
+    ->middleware(['auth','role:admin'])
+    ->group(function(){
+    Route::get('dashboard','index')->name('admin.dashboard');
+});
+Route::controller(UserController::class)->prefix('user')
+    ->middleware(['auth','role:user'])
+    ->group(function(){
+    Route::get('dashboard','index')->name('user.dashboard');
+});
+Route::controller(AgentController::class)->prefix('agent')
+    ->middleware(['auth','role:agent'])
+    ->group(function(){
+    Route::get('dashboard','index')->name('agent.dashboard');
 });

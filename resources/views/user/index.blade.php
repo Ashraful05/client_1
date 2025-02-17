@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('main_content')
-    <h1>Agents</h1>
+    <h1>Users Dashboard</h1>
 
     @if (session('success'))
         <div class="alert alert-success">
