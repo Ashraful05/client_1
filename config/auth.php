@@ -40,6 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+//        'admins' => [
+//            'driver' => 'eloquent',
+//            'model' => App\Models\Admin::class,
+//        ],
+        'authors'=>[
+            'driver' => 'eloquent',
+            'model' => App\Models\Agent::class,
+        ]
     ],
 
     /*

@@ -22,7 +22,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/dashboard', function () {
@@ -37,31 +37,72 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::middleware(['auth','role:admin'])->group(function (){
 
-Route::controller(CandidateController::class)->prefix('candidate')->group(function(){
-    Route::get('create','create')->name('candidate.create');
-});
-Route::controller(HospitalController::class)->prefix('hospital')->group(function(){
+    Route::controller(AdminController::class)->prefix('admin')->group(function (){
+        Route::get('logout','AdminLogout')->name('admin.logout');
+
+        Route::get('dashboard','home')->name('admin.dashboard');
+        Route::resource('users', AdminController::class);// Generates routes for index, create, store, show, edit, update, destroy
+        Route::get('slip','Slip')->name('admin.slip');
+    });
+
+    Route::controller(UserController::class)->middleware('role:user')->prefix('user')->name('user.')
+        ->group(function(){
+            Route::get('dashboard','index')->name('dashboard');
+        });
+
+    Route::controller(WorkingHourController::class)->prefix('workHour')->group(function(){
+
+    });
+
+    Route::controller(CandidateController::class)->prefix('candidate')->group(function(){
+        Route::get('create','create')->name('candidate.create');
+    });
+
+    Route::controller(HospitalController::class)->prefix('hospital')->group(function(){
+        // GET /hospital
+        Route::get('/', 'index')->name('hospital.index');
+        // GET /hospital/create
+        Route::get('/create', 'create')->name('hospital.create');
+        // POST /hospital
+        Route::post('/', 'store')->name('hospital.store');
+        // GET /hospital/{id}
+        Route::get('/{id}','show')->name('hospital.show');
+        // GET /hospital/{id}/edit
+        Route::get('/{id}/edit','edit')->name('hospital.edit');
+        // PUT/PATCH /hospital/{id}
+        Route::put('/{id}', 'update')->name('hospital.update');
+        Route::patch('/{id}','update');
+        // DELETE /hospital/{id}
+        Route::delete('/{id}',  'destroy')->name('hospital.destroy');
+    });
+
+    Route::controller(AppointmentController::class)->prefix('appointment')->group(function(){
+        Route::get('list','index')->name('appointments.index');
+    });
+
+    Route::controller(AgentController::class)->middleware('role:agent')->prefix('agent')->name('agent.')
+        ->group(function(){
+            Route::get('/', 'index')->name('index');
+            // GET /hospital/create
+            Route::get('/create', 'create')->name('create');
+            // POST /hospital
+            Route::post('/', 'store')->name('store');
+            // GET /hospital/{id}
+            Route::get('/{id}','show')->name('show');
+            // GET /hospital/{id}/edit
+            Route::get('/{id}/edit','edit')->name('edit');
+            // PUT/PATCH /hospital/{id}
+            Route::put('/{id}', 'update')->name('update');
+            Route::patch('/{id}','update');
+            // DELETE /hospital/{id}
+            Route::delete('/{id}',  'destroy')->name('destroy');
+        });
 
 });
-Route::controller(WorkingHourController::class)->prefix('workHour')->group(function(){
 
-});
-Route::controller(AppointmentController::class)->prefix('appointment')->group(function(){
-    Route::get('list','index')->name('appointments.index');
-});
-Route::controller(AdminController::class)->prefix('admin')
-    ->middleware(['auth','role:admin'])
-    ->group(function(){
-    Route::get('dashboard','index')->name('admin.dashboard');
-});
-Route::controller(UserController::class)->prefix('user')
-    ->middleware(['auth','role:user'])
-    ->group(function(){
-    Route::get('dashboard','index')->name('user.dashboard');
-});
-Route::controller(AgentController::class)->prefix('agent')
-    ->middleware(['auth','role:agent'])
-    ->group(function(){
-    Route::get('dashboard','index')->name('agent.dashboard');
-});
+
+
+
+
