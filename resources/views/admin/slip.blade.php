@@ -1056,19 +1056,18 @@
 
 
 
+        <script src="{{asset('/admin/assets/slip/js/djangojs.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/jquery.min.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/semantic.min.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/jquery.inputmask.min.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/cropper.min.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/jquery-cropper.min.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/glide.min.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/js.cookie.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/main.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/table-config.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/purify.min.js')}}"></script>
 
-        <script src="/static/jsi18n/en/djangojs.js"></script>
-
-        <script src="/static/vendor/jquery.min.js"></script>
-        <script src="/static/vendor/semantic/dist/semantic.min.js"></script>
-        <script src="/static/js/vendor/jquery.inputmask.min.js"></script>
-        <script src="/static/js/vendor/cropper.min.js"></script>
-        <script src="/static/js/vendor/jquery-cropper.min.js"></script>
-        <script src="/static/js/vendor/glide.min.js"></script>
-        <script src="/static/js/vendor/js.cookie.js"></script>
-        <script src="/static/js/main.js"></script>
-        <script src="/static/js/table-config.js"></script>
-        <script src="/static/js/purify.min.js"></script>
         <script>
             $(document).ready(function () {
                 $('.ui.dropdown').dropdown();
