@@ -9,6 +9,7 @@ use App\Http\Controllers\WorkingHourController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,7 @@ Route::middleware(['auth','role:admin'])->group(function (){
         Route::get('logout','AdminLogout')->name('admin.logout');
 
         Route::get('dashboard','home')->name('admin.dashboard');
-        Route::resource('users', AdminController::class);// Generates routes for index, create, store, show, edit, update, destroy
+//        Route::resource('users', AdminController::class);// Generates routes for index, create, store, show, edit, update, destroy
         Route::get('slip','Slip')->name('admin.slip');
     });
 
@@ -100,7 +101,16 @@ Route::middleware(['auth','role:admin'])->group(function (){
             Route::delete('/{id}',  'destroy')->name('destroy');
         });
 
+    Route::controller(StripeController::class)->prefix('stripe')->name('stripe.')->group(function (){
+        Route::get('form','showForm')->name('form');
+        Route::post('payment','payment')->name('payment');
+        Route::get('success','success')->name('success');
+        Route::get('cancel','cancel')->name('cancel');
+    });
+
 });
+
+
 
 
 
