@@ -11,7 +11,7 @@
     </script>
 
 
-    <link rel="icon" type="image/x-icon" href="/static/svg/logo-favicon-light.svg">
+    <link rel="icon" type="image/x-icon" href="{{asset('/admin/assets/slip/logo/logo-favicon-light.svg')}}">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-146902071-1"></script>
@@ -93,7 +93,7 @@
 
     <div class="item">
         <a href="/" id="gcc-header-icon-continer" class="header item brand menu-lsc-fix">
-            <img class="ui image" src="/static/svg/logo.svg">
+            <img class="ui image" src="{{asset('/admin/assets/slip/logo/logo.svg')}}">
         </a>
     </div>
 
@@ -186,7 +186,7 @@
 
 
                         <div class="item support-phone mobile tablet only">
-                            <img src="/static/svg/headset.svg" class="support-icon">
+                            <img src="{{asset('/admin/assets/slip/logo/headset.svg')}}" class="support-icon">
                             <b>
                                 <a href="tel:+966920023560">+966920023560</a>
                             </b>
@@ -1038,7 +1038,7 @@
 <div class="ui vertical basic segment footer">
     <div class="ui container center aligned">
         <div class="ui container center aligned">
-            <img class="footer-logo" src="/static/svg/gcc-old-logo-white.svg" alt="gulf health council logo">
+            <img class="footer-logo" src="{{asset('/admin/assets/slip/logo/gcc-old-logo-white.svg')}}" alt="gulf health council logo">
             <div class="social-media-icons">
                 <a href="https://www.instagram.com/ghc_gcc/channel/?hl=en"><img class="social-media-icons-colors" src="/static/svg/instagram.svg" alt="instagram"></a>
                 <a href=" https://ar-ar.facebook.com/GHCouncil/"><img class="social-media-icons-colors" src="/static/svg/facebook.svg" alt="facebook"></a>
@@ -1083,18 +1083,21 @@
         </script>
 
         <!-- start forms and widgets-specific -->
-        <script src="/static/vendor/semantic-ui-calendar/calendar.min.js"></script>
-        <script src="/static/vendor/semantic/dist/components/dropdown.js"></script>
-        <script src="/static/vendor/state-machine/state-machine.min.js"></script>
-        <script src="/static/js/calendar-widget.js"></script>
-        <script src="/static/js/vendor/moment.js"></script>
-        <script src="/static/js/components/single-dropdown-widget.js"></script>
-        <script src="/static/js/components/multiple-dropdown-widget.js"></script>
-        <script src="/static/js/captcha.js"></script>
-        <script src="/static/js/components/file-widget.js"></script>
-        <script src="/static/js/components/number-input-widget.js"></script>
+        <script src="{{asset('/admin/assets/slip/js/calendar.min.js')}}"></script>
+
+        <script src="{{asset('/admin/assets/slip/js/dropdown.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/state-machine.min.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/calendar-widget.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/moment.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/single-dropdown-widget.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/multiple-dropdown-widget.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/captcha.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/file-widget.js')}}"></script>
+        <script src="{{asset('/admin/assets/slip/js/number-input-widget.js')}}"></script>
+
+
         <script src="/static/js/components/labeled-select-widget.js"></script>
-        <script src="/static/js/city-country-controls.js"></script>
+        <script src="{{asset('/admin/assets/slip/js/city-country-controls.js')}}"></script>
 
         <!-- end forms and widgets-specific -->
 
@@ -1124,9 +1127,9 @@
     </div></div><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-3x5p4gba30sc" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LflPAwnAAAAAL2wBGi6tSyGUyj-xFvftINOR9xp&amp;co=aHR0cHM6Ly93YWZpZC5jb206NDQz&amp;hl=en&amp;v=IyZ984yGrXrBd6ihLOYGwy9X&amp;size=invisible&amp;cb=sczftdohs86g"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div><div class="ui dimmer modals page transition visible active" style="display: flex !important;"><div class="ui large modal gcc-modal gcc-slip-modal gcc-slip-web-view transition visible active scrolling" style="display: block !important;">
         <i class="close icon"></i>
         <div class="header">
-            <div class="header__logo"><img class="ui image" src="/static/svg/logo-gcc-slip.svg"></div>
+            <div class="header__logo"><img class="ui image" src="{{asset('/admin/assets/slip/logo/logo-gcc-slip.svg')}}"></div>
             <div class="header__text">Medical Examination Registration Confirmation</div>
-            <div class="header__logo"><img class="ui image" src="/static/img/gcc-logo-white.png"></div>
+            <div class="header__logo"><img class="ui image" src="{{asset('/admin/assets/slip/logo/gcc-logo-white.png')}}"></div>
         </div>
         <div class="content">
             <div class="description">
